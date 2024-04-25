@@ -19,7 +19,7 @@ def filter_operation_by_state(*operations: Operation, state: str) -> list[Operat
     for op in operations:
         if op.state == state:
             filtered_operations.append(op)
-        return filtered_operations
+    return filtered_operations
 
 
 def sort_operation_by_date(*operations: Operation) -> list[Operation]:
