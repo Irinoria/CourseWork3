@@ -22,11 +22,11 @@ class Payment:
             safe_number = self.split_card_number_by_blocks(safe_number)
         return f'{self.name} {safe_number}'
 
-#Функция маскирует номер счета
+#Маскировка номера счета
     def _get_safe_account(self) -> str:
         return '*' * 2 + self.number[-4:]
 
-#Функция маскирует номер карты
+#Маскировка номера карты
     def _get_safe_card_number(self) -> str:
         start, middle, end = self.number[:6], self.number[6:-4], self.number[-4:]
         return start + '*' * len(middle) + end
@@ -86,7 +86,7 @@ class Operation:
             payment_from=Payment.init_from_str(data['from']) if 'from' in data else None
         )
 
-#Функция выводит дату операции в формате ДД.ММ.ГГГГ
+#Вывод даты операции в формате ДД.ММ.ГГГГ
     def safe(self) -> str:
         lines = [
             f'{self.date.strftime("%d.%m.%Y")} {self.description}',

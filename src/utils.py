@@ -13,7 +13,7 @@ def get_operations(filename):
 
     return operations
 
-#Функция фильтрует операции по статусу
+#Фильтр операции по статусу
 def filter_operation_by_state(*operations: Operation, state: str) -> list[Operation]:
     filtered_operations: list[Operation] = []
     for op in operations:
@@ -21,6 +21,6 @@ def filter_operation_by_state(*operations: Operation, state: str) -> list[Operat
             filtered_operations.append(op)
     return filtered_operations
 
-#Функция сортирует операции по дате
+#Сортировка операции по дате
 def sort_operation_by_date(*operations: Operation) -> list[Operation]:
     return sorted(operations, key=lambda op: op.date, reverse=True)
